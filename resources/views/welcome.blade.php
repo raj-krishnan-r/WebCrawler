@@ -12,7 +12,7 @@
   <body>
       <div class="container">
       <input type="url" id="url"/><button onclick="generate()" class="btn btn-primary">Crawl</button>
-      <iframe id="resultSlot">
+      <iframe width="500px" height="500px" id="resultSlot">
       </iframe>
       </div>
       <script>
