@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 
 class crawler extends Controller
 {
-    $pageHashs = Array();
-    $netResults = Array();
+    $this->pageHashs = array();
+    $this->netResults = array();
     public function crawl(Request $request)
     {
         $result=Array();
         $html =  file_get_contents($request->input('root'));
+        array_push($netResults,$html);
         if(!array_search(md5(html),$pageHashs))
         {
         array_push($pageHashs,md5($html));
@@ -21,9 +22,15 @@ class crawler extends Controller
         $links = $dom->getElementsByTagName('a');
         foreach($links as $link)
         {
-            array_push($result,$link->getAttribute('href'));
+            echo $link->getAttribute('href');
+            ob_flush();
+            return crawl($link->getAttribute('href'));
+
         }
-        return json_encode($result);
+    }
+    else
+    {
+        return "Completed";
     }
     }
 }
