@@ -5,15 +5,33 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <style>
+    .contain{
+      display: grid;
+    }
+    .contain .optBar{
+      grid-row: 1;
+      grid-column: 1;
+    }
+    .contain .resultBar{
+      grid-row: 2;
+      grid-column: 1;
+    }
+    </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
       <div class="container">
+      <div class="contain">
+      <div class="optBar">
       <input type="url" id="url"/><button onclick="generate()" class="btn btn-primary">Crawl</button>
-      <iframe width="1000px" height="500px" id="resultSlot">
+      </div>
+      <div class="resultBar">
+      <iframe width="1000px" height="900px" id="resultSlot">
+      </div>
       </iframe>
+      </div>
       </div>
       <script>
       function generate(){
